@@ -1,0 +1,4 @@
+node_modules/
+.git
+_dev
+_production
