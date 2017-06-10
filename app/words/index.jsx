@@ -2,8 +2,8 @@
 * @Author: woolson
 * @Date:   2016-06-16 16:06:00
 * @Email:  woolson.lee@gmail.com
-* @Last modified by:   woolson
-* @Last modified time: 2016-12-10 00:12:21
+ * @Last modified by:   woolson
+ * @Last modified time: 2017-05-25 12:05:80
 */
 
 import "./style"
@@ -11,6 +11,8 @@ import React from "react"
 import moment from "moment"
 import cx from "classnames"
 import Empty from "_block-with-empty"
+import $ from "jquery"
+import moment from "moment"
 
 const Color = [
   "#03B765",

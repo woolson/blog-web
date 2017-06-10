@@ -2,8 +2,8 @@
 * @Author: woolson
 * @Date:   2016-09-20 18:09:00
 * @Email:  woolson.lee@gmail.com
-* @Last modified by:   woolson
-* @Last modified time: 2016-11-28 17:11:22
+ * @Last modified by:   woolson
+ * @Last modified time: 2017-05-25 12:05:13
 */
 
 import "./style"
@@ -11,6 +11,7 @@ import React, { Component, PropTypes } from "react"
 import { unmountComponentAtNode } from "react-dom"
 import cx from "classnames"
 import Button from "_button"
+import $ from "jquery"
 
 export default class Modal extends Component {
   static propTypes = {

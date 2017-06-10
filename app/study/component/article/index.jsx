@@ -2,8 +2,8 @@
 * @Author: woolson
 * @Date:   2016-12-03 20:53:13
 * @Email:   woolson.lee@gmail.com
-* @Last Modified by:   woolson
-* @Last Modified time: 2016-12-21 23:52:59
+ * @Last modified by:   woolson
+ * @Last modified time: 2017-05-25 12:05:23
 */
 
 import "./style"
@@ -11,6 +11,7 @@ import React, { Component } from "react"
 import { browserHistory } from "react-router"
 import Comment from "_comment"
 import { Msg, isEmpty } from "utils"
+import $ from "jquery"
 
 export default class Article extends Component {
   state = {

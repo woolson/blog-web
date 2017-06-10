@@ -2,14 +2,16 @@
 * @Author: woolson
 * @Date:   2016-12-16 23:16:17
 * @Email:   woolson.lee@gmail.com
-* @Last modified by:   woolson
-* @Last modified time: 2017-01-06 22:01:95
+ * @Last modified by:   woolson
+ * @Last modified time: 2017-05-25 12:05:04
 */
 
 import "./style"
 import React, { Component } from "react"
 import cx from "classnames"
 import { isEmpty, Msg } from "utils"
+import $ from "jquery"
+import moment from "moment"
 
 export default class Comment extends Component {
   static defaultProps = {

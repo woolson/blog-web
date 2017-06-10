@@ -1,6 +1,7 @@
 import "./style"
 import React from "react"
 import ReactDOM from "react-dom"
+import $ from "jquery"
 
 let Signup = React.createClass({
   signup() {
