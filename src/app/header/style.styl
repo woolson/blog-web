@@ -1,0 +1,26 @@
+.header
+  display flex
+  justify-content flex-start
+  border-bottom 3px solid $main-blue
+  padding-left 10%
+
+.header_item
+  a
+    display block
+    padding 15px 25px
+    color $main-blue
+    white-space nowrap
+    text-decoration none
+    i
+      margin-right 5px
+
+.header_item--active
+  background linear-gradient(45deg, $main-blue, $main-green)
+  a
+    color: white
+
+@media screen and (max-width: 760px)
+  .header
+    padding-left 0
+  .header_item
+    flex: 1

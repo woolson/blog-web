@@ -1,0 +1,120 @@
+@require "global"
+
+.study-list
+  display flex
+  flex-direction column
+  overflow hidden
+  ._loading-block
+    min-height 300px
+  ._block-wrapper
+    width 80vw
+    margin 20px auto
+    ._empty-tip
+      margin-top 30vh
+  ._tab
+    transform translate(0, -100%)
+    animation slideDown .5s forwords
+    overflow auto
+
+@keyframes slideDown
+  0% {
+    transform translate(0, -100%)
+  }
+  100% {
+    transform translate(0, 0)
+  }
+
+.study-list__content
+  flex 5
+  overflow auto
+  box-sizing border-box
+  display flex
+  justify-content flex-start
+  align-items flex-start
+  flex-direction column
+  align-self flex-start
+
+.study-list__content__item
+  box-sizing border-box
+  padding 10px 20px
+  margin-bottom 20px
+  background white
+  background-size 2px 100%
+  cursor pointer
+  width 100%
+  transition all 0.3s
+  text-decoration none
+  &:hover
+    border-radius 5px
+    background linear-gradient(to right, rgba($main-blue, .8), rgba($main-green, .8))
+    background-repeat no-repeat
+    background-size 100% 100%
+    h3
+    .study-list__content__item__content
+    .study-list__content__item__tag span
+      color white !important
+  h3
+    font-weight normal
+    margin 0 0 10px 0
+    font-size 1.2rem
+    line-height 2rem
+    color $main-blue
+    cursor pointer
+    text-decoration none
+
+.study-list__content__item__content
+  font-size 15px
+  text-indent 40px
+  margin-top 10px
+  margin-bottom 0
+  line-height 22px
+  transition all 0.3s
+  color #2D3F50
+
+.study-list__content__item__tag span
+  transition all 0.3s
+  font-size 12px
+  color darken($border-gray, 20%)
+  padding-left 10px
+
+.study-list__artical
+  flex 5
+  padding 20px 50px 10px 50px
+  h2
+    text-align center
+    color darken($main-blue, 15%)
+    margin-bottom 25px
+  .artical-date
+    font-size 10px
+    text-align center
+    color #666
+  .artical-content
+    font-size 16px
+    line-height 35px
+    text-indent 35px
+    color #666
+  .button
+    text-align center
+    a
+      width 50px
+      height 50px
+      line-height 46px
+      border-radius 100%
+      margin 30px 0
+      font-weight bolder
+      font-size 17px
+      color #999
+      background-image none
+    a:hover
+      color #999
+
+@media screen and (max-width: 765px)
+  .study-list
+    flex-direction column
+    width 100%
+    ._tab
+      padding-left 10px
+      li
+        flex 1
+    ._block-wrapper
+      width 100vw
