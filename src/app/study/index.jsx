@@ -138,12 +138,14 @@ class Study extends React.Component {
 
     return (
       <div className="study-list">
-        <Tab
-          ref="tabList"
-          list={ TabList.map(o => o.name) }
-          index={ tabIndex }
-          onChange={ this.onTabChanged }
-        />
+        <div className="study-list__nav">
+          <Tab
+            ref="tabList"
+            list={ TabList.map(o => o.name) }
+            index={ tabIndex }
+            onChange={ this.onTabChanged }
+          />
+        </div>
 
         {
           children ?
