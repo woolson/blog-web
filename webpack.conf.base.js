@@ -107,7 +107,14 @@ module.exports = {
         test: /\.md?$/,
         use: [
           "html-loader",
-          "markdown-loader",
+          {
+            loader: "markdown-loader",
+            options: {
+              highlight: function(code) {
+                return require("highlight.js").highlightAuto(code).value
+              }
+            }
+          },
         ]
       },
       {

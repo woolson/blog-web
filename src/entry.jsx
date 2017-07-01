@@ -13,6 +13,8 @@ import AppRouter from "./router"
 import "normalize.css/normalize"
 import "font-awesome/css/font-awesome"
 import "github-markdown-css/github-markdown.css"
+// import "Static/css/marxico.css"
+import "highlight.js/styles/monokai.css"
 
 render(
   <AppRouter />,
