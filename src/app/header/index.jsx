@@ -43,8 +43,8 @@ export default class Header extends React.Component {
       const isActive = pathname.indexOf(item.path) !== -1
       const isHome = item.path === "/"
 
-      const klass = cx("header_item", {
-        "header_item--active": isHome ? pathname === "/" : isActive,
+      const klass = cx("header__nav__item", {
+        "header__nav__item--active": isHome ? pathname === "/" : isActive,
       })
 
       return (
@@ -63,9 +63,26 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const {pathname} = browserHistory.getCurrentLocation()
+    const position = {
+      "/": 39,
+      "/study": 49,
+      "/share": 59,
+    }[pathname]
+
     return (
       <div className="header">
-        { this.renderSections() }
+        <div
+          className="header__bg"
+          style={{
+            backgroundImage: `url(${Banner})`,
+            backgroundPositionY: `-${position || 49}%`,
+          }}
+        />
+
+        <div className="header__nav">
+          { this.renderSections() }
+        </div>
       </div>
     )
   }

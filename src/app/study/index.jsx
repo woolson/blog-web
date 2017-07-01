@@ -26,12 +26,8 @@ const TabList = [
     tag: "new",
   },
   {
-    name: "JS",
-    tag: "js",
-  },
-  {
-    name: "CSS",
-    tag: "css",
+    name: "前端",
+    tag: "frontend",
   },
   {
     name: "笔记",

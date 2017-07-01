@@ -4,7 +4,7 @@
       "article_id": 1,
       "title": "使用ReactRoute的browserHistory相关处理",
       "article": "browserhistory_in_reactrouter",
-      "tags": "javascript",
+      "tags": "frontend",
       "describe": "ReactRoute默认使用hashHistory虽然易用，但是路由看起来乱糟糟的。这里记录一下在使用browserHistory的时候前后端需要的配置。",
       "date": "2016-07-21 21:22:01"
     },
@@ -28,7 +28,7 @@
       "article_id": 4,
       "title": "NodeJs处理文章markdown文件",
       "article": "parse_md_in_nodejs",
-      "tags": "js",
+      "tags": "frontend",
       "describe": "我们可以使用markdown写文章，然后使用NodeJs解析返回给前端。其实前端也可以处理此操作。",
       "date": "2017-01-03 22:41:00"
     },
