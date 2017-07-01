@@ -38,7 +38,7 @@ module.exports = merge(baseWebapckConfig, {
     }),
     new HTMLWebpackPlugin({
       filename: "index.html",
-      template: "index.html",  
+      template: "index.html",
       inject: true,
       minify: {
         removeComments: true,

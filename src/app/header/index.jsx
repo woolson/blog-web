@@ -8,7 +8,7 @@
 
 import "./style"
 import React from "react"
-import { Link, browserHistory } from "react-router"
+import { Link, hashHistory } from "react-router"
 import Banner from "Static/images/banner.jpg"
 import cx from "classnames"
 
@@ -36,7 +36,7 @@ export default class Header extends React.Component {
   }
 
   renderSections() {
-    const {pathname} = browserHistory.getCurrentLocation()
+    const {pathname} = hashHistory.getCurrentLocation()
 
     return this.sections.map(item => {
       const icon = item.icon
@@ -63,7 +63,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const {pathname} = browserHistory.getCurrentLocation()
+    const {pathname} = hashHistory.getCurrentLocation()
     const position = {
       "/": 39,
       "/study": 49,

@@ -12,7 +12,7 @@ import {
   Router,
   Route,
   IndexRoute,
-  browserHistory,
+  hashHistory,
 } from "react-router"
 import Header from "./app/header"
 import Home from "./app/home"
@@ -28,7 +28,7 @@ const App = (props) =>
   </div>
 
 export default (props) =>
-  <Router history={ browserHistory }>
+  <Router history={ hashHistory }>
     <Route
       path="/"
       component={ App }

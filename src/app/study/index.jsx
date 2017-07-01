@@ -11,7 +11,7 @@ import React from "react"
 import moment from "moment"
 import Tab from "_tab"
 import Empty from "_block-with-empty"
-import { Link, browserHistory } from "react-router"
+import { Link, hashHistory } from "react-router"
 import axios from "axios"
 import _ from "lodash"
 import articles from "Faker/article"
@@ -84,7 +84,7 @@ class Study extends React.Component {
   }
 
   showArticle(data) {
-    browserHistory.push({
+    hashHistory.push({
       pathname: "article",
       state: data,
       query: {
@@ -124,9 +124,9 @@ class Study extends React.Component {
   }
 
   onTabChanged(tabIndex) {
-    const {pathname} = browserHistory.getCurrentLocation()
+    const {pathname} = hashHistory.getCurrentLocation()
     if(pathname.indexOf("article") !== -1) {
-      browserHistory.push("/study")
+      hashHistory.push("/study")
     }
 
     this.setState({tabIndex})
