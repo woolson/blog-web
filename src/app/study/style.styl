@@ -10,8 +10,6 @@
     ._empty-tip
       margin-top 30vh
   .study-list__nav
-    // transform translate(0, -100%)
-    animation slideDown .5s forwords
     overflow auto
     background $main-blue
     display flex
@@ -21,15 +19,9 @@
       max-width 900px
       padding 3px 20px 6px 20px
       li
+        cursor pointer
         padding 5px 15px
-
-@keyframes slideDown
-  0% {
-    transform translate(0, -100%)
-  }
-  100% {
-    transform translate(0, 0)
-  }
+        min-width 50px
 
 .study-list__content
   max-width 900px
@@ -124,8 +116,7 @@
       padding-left 10px
       li
         flex 1
+        min-width 20px !important
     ._block-wrapper
       width 100vw
       box-sizing border-box
-    .study-list__content__item
-      background white !important

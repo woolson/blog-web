@@ -39,6 +39,7 @@ if(isProduction) {
   styleLoaders.push({
     loader: "postcss-loader",
     options: {
+      sourceMap: "inline",
       plugins: function() {
         return [
           require("autoprefixer"),
