@@ -2,8 +2,8 @@
  * @Author: woolson
  * @Date:   2017-06-10 22:06:00
  * @Email:  woolson.lee@gmail.com
- * @Last modified by:   woolson
- * @Last modified time: 2017-06-11 21:06:47
+* @Last modified by:   woolson
+* @Last modified time: 2017-07-22 18:07:73
  */
 
 var path = require("path")
@@ -66,7 +66,6 @@ module.exports = {
     ],
     alias: {
       "Static": path.join(__dirname, "static"),
-      "Faker": path.join(__dirname, "src", "faker"),
     },
   },
   module: {
@@ -98,9 +97,8 @@ module.exports = {
       },
       {
         test: /\.json?$/,
-        loader: "url-loader",
+        loader: "file-loader",
         options: {
-          limit: 10000,
           name: "faker/[name].[hash:7].[ext]",
         },
       },

@@ -2,8 +2,8 @@
 * @Author: woolson
 * @Date:   2016-06-16 16:06:00
 * @Email:  woolson.lee@gmail.com
- * @Last modified by:   woolson
- * @Last modified time: 2017-06-11 23:06:53
+* @Last modified by:   woolson
+* @Last modified time: 2017-07-22 17:07:29
 */
 
 import "./style"
@@ -14,7 +14,7 @@ import Empty from "_block-with-empty"
 import { Link, hashHistory } from "react-router"
 import axios from "axios"
 import _ from "lodash"
-import articles from "Faker/article"
+import articles from "Static/faker/article"
 
 const TabList = [
   {
