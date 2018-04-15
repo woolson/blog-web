@@ -14,7 +14,7 @@ export default class Article extends React.Component {
   constructor(props) {
     super(props)
 
-    const {name} = props.routeParams
+    const {name} = props.match.params
     const content = require(`Static/articles/${name}.md`)
 
     this.state = {

@@ -11,7 +11,7 @@ import React from "react"
 import moment from "moment"
 import Tab from "_tab"
 import Empty from "_block-with-empty"
-import { Link, hashHistory } from "react-router"
+import { Link, hashHistory } from "react-router-dom"
 import axios from "axios"
 import _ from "lodash"
 import articles from "Static/faker/article"
@@ -19,7 +19,7 @@ import articles from "Static/faker/article"
 const TabList = [
   {
     name: "全部",
-    tag: ""
+    tag: "all"
   },
   {
     name: "最新",
@@ -47,7 +47,6 @@ class Study extends React.Component {
     this.state = {
       list: null,
       index: 0,
-      tabIndex: 0,
     }
 
     this.onTabChanged = this.onTabChanged.bind(this)
@@ -64,8 +63,14 @@ class Study extends React.Component {
     })
   }
 
+  tabIndex() {
+    const { type } = this.props.match.params
+    return TabList.findIndex(o => o.tag === type)
+  }
+
   filterList() {
-    const {list, tabIndex} = this.state
+    const {list} = this.state
+    const tabIndex = this.tabIndex()
 
     if(_.isEmpty(list)) return []
 
@@ -83,22 +88,12 @@ class Study extends React.Component {
     }
   }
 
-  showArticle(data) {
-    hashHistory.push({
-      pathname: "article",
-      state: data,
-      query: {
-        is: data.article,
-      },
-    })
-  }
-
   renderList() {
     return this.filterList().map((item, index) => {
       return (
         <Link
           key={ index }
-          to={ `/study/article/${item.article}` }
+          to={ `/article/${item.article}` }
           className="study-list__content__item"
         >
           <h3>{ item.title }</h3>
@@ -124,17 +119,13 @@ class Study extends React.Component {
   }
 
   onTabChanged(tabIndex) {
-    const {pathname} = hashHistory.getCurrentLocation()
-    if(pathname.indexOf("article") !== -1) {
-      hashHistory.push("/study")
-    }
+    const {pathname} = window.location
 
-    this.setState({tabIndex})
+    this.props.history.replace(`/study/${TabList[tabIndex].tag}`)
   }
 
   render() {
-    const {list, tabIndex} = this.state
-    const children = this.props.children
+    
 
     return (
       <div className="study-list">
@@ -142,24 +133,19 @@ class Study extends React.Component {
           <Tab
             ref="tabList"
             list={ TabList.map(o => o.name) }
-            index={ tabIndex }
+            index={ this.tabIndex() }
             onChange={ this.onTabChanged }
           />
         </div>
 
-        {
-          children ?
-            children
-            :
-            <Empty
-              loading={ list === null }
-              empty={ _.isEmpty(this.filterList()) }
-            >
-              <div className="study-list__content">
-                { this.renderList() }
-              </div>
-            </Empty>
-        }
+        <Empty
+          loading={ this.state.list === null }
+          empty={ _.isEmpty(this.filterList()) }
+        >
+          <div className="study-list__content">
+            { this.renderList() }
+          </div>
+        </Empty>
       </div>
     )
   }

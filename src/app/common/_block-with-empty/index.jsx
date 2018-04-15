@@ -24,7 +24,7 @@ const BlockWrapper = (props) => {
             {
               props.text || <span>
                 <i className="fa fa-exclamation-triangle u-mr10" />
-                Nothing
+                无数据
               </span>
             }
           </div>

@@ -8,39 +8,47 @@
 
 import "./style"
 import React from "react"
-import { Link, hashHistory } from "react-router"
+import { withRouter } from "react-router"
+import { Link } from "react-router-dom"
 import Banner from "Static/images/banner.jpg"
 import cx from "classnames"
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props)
-
+    
     this.sections = [
       {
         name: "主页",
         icon: "home",
+        active: ["/"],
         path: "/",
       },
       {
         name: "文章",
         icon: "graduation-cap",
-        path: "/study",
+        active: ["/study", "/article"],
+        path: "/study/all",
       },
       {
         name: "分享",
         icon: "database",
-        path: "/share"
+        active: ["/share"],
+        path: "/share",
       }
     ]
   }
 
   renderSections() {
-    const {pathname} = hashHistory.getCurrentLocation()
+    // const {pathname} = browserHistory.getCurrentLocation()
+    const { history } = this.props
+    const { pathname } = history.location
 
     return this.sections.map(item => {
       const icon = item.icon
-      const isActive = pathname.indexOf(item.path) !== -1
+      const isActive = item.active.some(o => {
+        return pathname.indexOf(o) !== -1
+      })
       const isHome = item.path === "/"
 
       const klass = cx("header__nav__item", {
@@ -63,22 +71,9 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const {pathname} = hashHistory.getCurrentLocation()
-    const position = {
-      "/": 39,
-      "/study": 49,
-      "/share": 59,
-    }[pathname]
-
     return (
       <div className="header">
-        <div
-          className="header__bg"
-          style={{
-            backgroundImage: `url(${Banner})`,
-            backgroundPositionY: `-${position || 49}%`,
-          }}
-        />
+        <div className="header__bg"/>
 
         <div className="header__nav">
           { this.renderSections() }
@@ -87,3 +82,5 @@ export default class Header extends React.Component {
     )
   }
 }
+
+export default withRouter(Header)

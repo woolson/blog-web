@@ -9,49 +9,51 @@
 // import "./style"
 import React from "react"
 import {
-  Router,
+  BrowserRouter,
   Route,
-  IndexRoute,
-  hashHistory,
-} from "react-router"
+  Switch,
+} from 'react-router-dom'
 import Header from "./app/header"
 import Home from "./app/home"
 import Study from "./app/study"
 import Article from "./app/article"
 import Share from "./app/share"
 
-const App = (props) =>
-  <div className="application">
-    <Header />
+// const baseUrl = process.env.NODE_ENV === 'production' ? '/blog' : '/'
+// const baseUrl = '/blog'
 
-    { props.children }
-  </div>
+// const App = (props) =>
+  
 
 export default (props) =>
-  <Router history={ hashHistory }>
-    <Route
-      path="/"
-      component={ App }
-    >
-      <IndexRoute
-        component={ Home }
-      />
+  <BrowserRouter basename="/blog">
+    <div className="application">
+      <Header />
 
-      <Route
-        path="/study"
-        component={ Study }
-        onChange={ () => document.body.scrollTop = 0 }
-      >
+      <Switch>
         <Route
-          path="article/:name"
-          component={ Article }
+          path="/"
+          exact={true}
+          component={Home}
         />
-      </Route>
 
-      <Route
-        path="/share"
-        component={ Share }
-      />
-    </Route>
-  </Router>
+        <Route
+          path="/study/:type"
+          exact={true}
+          component={Study}
+          onChange={() => document.body.scrollTop = 0}
+        />
+
+        <Route
+          path="/article/:name"
+          component={Article}
+        />
+
+        <Route
+          path="/share"
+          component={Share}
+        />
+      </Switch>
+    </div>
+  </BrowserRouter>
 
